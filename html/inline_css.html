@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+
+		<!-- Inernal CSS -->
+		<style type="text/css">
+			/* Type Selector */
+			p {
+				color: blue;
+				background-color: green;
+			}
+
+			/* ID Selector */
+			#top_p {
+				background-color: red;
+				color: yellow;
+			}
+
+			/* Class Selector */
+			.sentence {
+				background-color: blue;
+				color: yellow;	
+			}
+		</style>
+
+		<!-- External CSS -->
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+	</head>
+
+	<body>
+
+		<!-- Priority of inline CSS is higher than Internal CSS -->
+
+		<p class="sentence">
+			Quick brown fox jumps over the lazy dog.
+		</p>
+
+		<p id="top_p">
+			I am the Top Tag on Top!
+		</p>
+
+		<!-- Example of inline CSS+ -->
+		<p style="background-color: black; color: white;" >
+			We are learning CSS today!
+		</p>
+
+		<p>
+			I'm an another P Tag!
+		</p>
+
+		<p class="sentence">
+			One more P Tag!
+		</p>
+
+	</body>
+</html>
