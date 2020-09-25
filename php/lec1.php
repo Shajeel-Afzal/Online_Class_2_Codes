@@ -201,5 +201,79 @@
 	echo true xor false; // true
 	echo true xor true; // false
 
+	echo "<br><br>";
+	echo "------ Arrays ------";
+	echo "<br><br>";
+
+	$student1 = "Rida";
+	$student2 = "Hamid";
+	$student3 = "Nabila";
+	$student4 = "Aqsa";
+
+	// $participents = array();
+	// $participents[0] = "Rida";
+	// $participents[1] = "Hamid";
+
+	// Note: indexes in array starts from 0 not 1;
+
+	$lectureParticipents = array("Rida", "Hamid", "Nabila", "Aqsa");
+
+	echo "<br>";
+	echo $lectureParticipents[2];
+
+	echo "<br><br>";
+	echo "------ Associative Arrays ------";
+	echo "<br><br>";
+
+	$courses = array("technical" => "HTML<br>CSS<br>Bootstrap<br>PHP<br>MySQL<br>WordPress<br>Fiverr<br>Upwork<br>Freelancer.com<br>", "non-technical" => "Digital Marketing<br>SEO<br>Content Writing");
+
+	$courses["creative"] = "Photoshop<br>illustrator";
+
+	echo "<br>";
+	echo $courses["technical"];
+
+	echo "<br>";
+	echo $courses["non-technical"];
+
+	echo "<br><br>";
+	echo "------ Conditional Statements ------";
+	echo "<br><br>";
+
+	// if(condition){
+	// 	executes when the condition is true
+	// 	// statements;	
+	// } else {
+	//	executes when the condition is false
+	//	// statements
+	// }
+
+	$liveStudentsCount = 9;
+
+	if($liveStudentsCount > 10){
+		echo "More than 10 students are live!";
+	} else if($liveStudentsCount > 20) {
+		echo "More than 20 students are live!";
+	} else if($liveStudentsCount > 30){
+		echo "More than 30 students are live!";
+	} else if($liveStudentsCount > 40){
+		echo "More than 40 students are live!";
+	} else {
+		echo "Less than or equal to 10 students are live!";
+	}
+
+	echo "<br><br>";
+	echo "------ Loops ------";
+	echo "<br><br>";
+
+	// while loop
+	// while(condition){
+	// 	// loop statement(s)
+	// }
+
+	$count = 0;
+	while($count < 5){
+		echo "<br>Hello World!";
+		$count++;
+	}
 
 ?>
