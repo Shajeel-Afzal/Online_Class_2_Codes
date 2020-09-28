@@ -262,7 +262,7 @@
 	}
 
 	echo "<br><br>";
-	echo "------ Loops ------";
+	echo "------ While Loop ------";
 	echo "<br><br>";
 
 	// while loop
@@ -274,6 +274,173 @@
 	while($count < 5){
 		echo "<br>Hello World!";
 		$count++;
+	}
+
+	echo "<br><br>";
+	echo "------ Do While Loop ------";
+	echo "<br><br>";
+
+	/*
+		Syntax: 
+
+		do {
+			// code statements;
+		} while(condition);
+	*/
+
+	$z = 0;
+	do{
+		echo "Hello World<br>";
+		$z++;
+	}while($z < 10);
+
+	echo "<br><br>";
+	echo "------ For Loop ------";
+	echo "<br><br>";
+
+	/*
+
+		for(statement1; statement2; statement3){
+			// body: statements
+		}
+
+		statement1: executes one time at start.
+		statement2: before execution of each iteration
+		statement3: after execution of each iteration
+
+		Execution: 	1- statement1, 
+					2- statement2, 
+					3- body,
+					4- statement3,
+					5- statement2,
+
+	*/	
+
+	for($a = 0; $a < 10; $a++){
+		echo "For Loop".$a."<br>";
+	}
+
+	echo "<br><br>";
+
+	for($a = 0; false; $a++){
+		echo "For Loop".$a."<br>";	
+	}
+
+	echo "<br><br>";
+
+	// for(print("Statement 1<br>"); print("Statement 2<br>"); print("Statement 3")){
+	// 	echo "Body";	
+	// }
+
+	echo "<br><br>";
+
+	// for($a=0; $b=1; $c=2){
+	// 	echo $a;
+	// }
+
+	$zz = 0;
+	for(;$zz < 20;){
+		echo $zz;
+		$zz++;
+	}
+
+	echo "<br><br>";
+	echo "------ For Each Loop ------";
+	echo "<br><br>";
+
+	/*
+		Syntax:
+		foreach(arrayName as $value){
+			// statements
+		}
+
+		foreach(arrayName as $key => $value){
+			// statements
+		}
+	*/
+
+	$namesList = array("Shahar Bano", "Sanaullah Khan", "Amna Awais");
+
+	foreach($namesList as $n){
+		echo $n."<br>";
+	}
+
+	echo "<br><br>";
+
+	foreach($namesList as $key => $value){
+		echo $key." ".$value."<br>";
+	}
+
+	echo "<br><br>";
+	echo "------ Switch Statement ------";
+	echo "<br><br>";
+
+	/*
+		Syntax: 
+			switch(expression){
+				case 1:
+					statements;
+					break;
+				case 2: 
+					statements;
+					break;
+				default:
+					statements;
+					break;
+			}
+	*/
+
+	$age = 1;
+	switch($age){
+		case 1:
+		case 3:
+			echo "Age is 1.";
+			break;
+		case 2:
+			echo "Age is 2.";
+			break;
+		case 20:
+			echo "Age is 20.";
+			break;
+		default:
+			echo "No case matched.";
+			break;
+	}
+
+	// Note that it also works on strings as well.
+
+	echo "<br><br>";
+	echo "------ break Statement ------";
+	echo "<br><br>";
+
+	$xy = 0;
+	while(true){
+
+		if($xy == 10){
+			break;
+		}
+
+		echo $xy."<br>";
+		$xy++;
+	}
+
+	echo "<br><br>";
+	echo "------ continue Statement ------";
+	echo "<br><br>";
+
+	$xyz = 0;
+	while(true){
+		$xyz++;
+
+		if($xyz == 4){
+			continue;
+		}
+
+		if($xyz == 10){
+			break;
+		}
+
+		echo $xyz."<br>";
 	}
 
 ?>
