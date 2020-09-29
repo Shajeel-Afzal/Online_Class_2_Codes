@@ -443,4 +443,106 @@
 		echo $xyz."<br>";
 	}
 
+	echo "<br><br>";
+	echo "------ include ------";
+	echo "<br><br>";
+
+	/*
+		Syntax:
+		include 'file path and file name';
+	*/
+
+	include 'header.php';
+
+	echo "<br><br>";
+	echo "------ require ------";
+	echo "<br><br>";
+
+	/*
+		require statement is also used for the same purpose.
+		But the only difference is that it does not execute 
+		the remaining script if the file is missing.
+	*/
+
+	echo "<br><br>";
+	echo "------ functions ------";
+	echo "<br><br>";
+
+	/*
+
+		function functionName(){
+			// body: statements
+		}
+	
+	*/
+
+	// creating a new function named sayHello
+	function sayHello(){
+		echo "Hello!<br>";
+		sayHi();
+	}
+
+	function sayHi(){
+		echo "Hi!<br>";
+	}
+
+	// calling the function
+	sayHello();
+	sayHello();
+	sayHello();
+
+	// creating a function that add two numbers
+	function addNumbers($num1, $num2){
+		echo $num1 + $num2;
+		echo "<br>";
+	}
+
+	addNumbers(2, 4);
+	addNumbers(10, 20);
+
+	function multiplyNumbers($num1, $num2){
+		return $num1 * $num2;
+		echo "statement after return!";
+	}
+
+	$result = multiplyNumbers(2, 4);
+	echo $result."<br>";
+
+	echo multiplyNumbers(5, 10);
+
+	echo "<br><br>";
+	echo "------ Pre Defined Variables ------";
+	echo "<br><br>";
+
+	/*
+		$_SERVER, $GLOBALS, $_REQUEST, $_POST, $_GET,
+		$_FILES, $_ENV, $_COOKIES, $_SESSION
+
+	*/
+
+	// $_SERVER
+	echo $_SERVER['SCRIPT_NAME'];
+
+	// read more: https://www.php.net/manual/en/reserved.variables.server.php
+
+	/* 
+		$_GET
+	 	- information of the form is stored in this superglobal
+	 	- The information of the form submitted with get method is public in the URL
+	 	- GET also sets the limit on the amount of information that can be sent (2000 characters)
+	 	- GET is not used when form is collecting sensitive information.
+	*/
+
+	/* 
+		$_POST
+	 	- information of the form is stored in this superglobal
+	 	- The information of the form submitted with post method is private and secure.
+	 	- There is no limit on POST like GET.
+	 	- supports advance functionality such as multi-part binary.
+	 	- POST method is used when form is collecting sensitive information.
+	 	- However the bookmark is not available
+	*/
+
+	
+
 ?>
