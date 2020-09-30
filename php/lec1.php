@@ -543,6 +543,28 @@
 	 	- However the bookmark is not available
 	*/
 
-	
+	echo "<br><br>";
+	echo "------ SESSION Super Global------";
+	echo "<br><br>";
+
+	/*
+		- uses to store information across multiple pages
+		- information is not stored on user's computer
+		- information is stored on server side
+		- information lasts until the browser is closed or we can set the session timeout.
+		- session is secure because the information is stored on server side.
+		- session_start(); function used to start the session
+		- $_SESSION PHP global is used to set session variables.
+		- you can remove your session variables manually using the session_unset(); function.
+		- session_destroy() can also be used for the same purpose
+		- Documentation Link: https://www.php.net/manual/en/reserved.variables.session.php
+	*/
+
+	session_start();
+
+	$_SESSION['name'] = "Shajeel Afzal";
+	$_SESSION['color'] = "Black";
+
+
 
 ?>
