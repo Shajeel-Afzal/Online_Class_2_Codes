@@ -565,6 +565,172 @@
 	$_SESSION['name'] = "Shajeel Afzal";
 	$_SESSION['color'] = "Black";
 
+	echo "<br><br>";
+	echo "------ Cookies Super Global------";
+	echo "<br><br>";
 
+	/*
+		- Cookies are often used to identify users.
+		- Cookies are stored on the browser side (in the user computer)
+		- Cookies are not secure.
+		- Cookies are not meant to store sensitive information.
+		- When you visit a website, it can send the cookies as well on the server.
+		- Using PHP, we can store and retreive Cookies.
+		- To create Cookies we use the function "setcookie();"
+		- $_COOKIE superglobal is used to manage cookies in PHP
+
+
+		sytax:
+		setcookie(
+			name: to specify the cookie, 
+			
+			value: to specify the cookie value,
+			
+			expire: to specify the expiry time (in seconds) of the cookie,
+			
+			path: specifies the server path of the cookie. "/" then cookie will be available in the entire website.
+
+			domain: specifies the domain of the cookie. For example, abc.com
+
+			secure: to specify whether the cookie should be transmitted on a secure HTTP connection or not.
+
+			httponly: if set to True, the cookie will be accessible through the HTTP protocol only.
+		);
+
+		Note: The name parameter is the only one that's required.
+
+		Note: The setcookie function must appear before the 
+		<html>
+
+	*/
+
+	$value = "Shajeel Afzal";
+	setcookie(
+		"user", 
+		$value,
+		time() + (60 * 60),
+		"/"
+	);
+
+	if(isset($_COOKIE['user'])){
+		echo "Value is:".$_COOKIE['user'];
+	} else {
+		echo "Cookie is not set!";
+	}
+
+	echo "<br><br>";
+	echo "------ Objects Oriented Programming (OOP) ------";
+	echo "<br><br>";
+
+	/*
+
+		- It is a Programming Style.
+		- Objects are created using classes.
+		- Class describes what the Object will be
+		- Objects are created from classes.
+		- You can think of the class a blueprint for creaging multiple different objects.
+
+		PHP Classes:
+		- A class can include member variables
+		- member variables are also called properties.
+		- member variables defines the features of an object.
+		- class methods: are used for defining the functions of the object.
+
+		Example: Car Class
+			- properties:
+				color
+				type
+				year
+				company
+				number of seats
+			- functions (behaviours)
+				accelerate
+				stop
+				reverse
+				turn on lights
+				turn off lights
+				open door
+				close door
+
+	*/
+
+	// creating person classes
+	class Person {
+		// defining the properties of the class
+		public $gender;
+		public $age;
+		public $height;
+		public $education;
+		public $occupation;
+
+		// creating the behaviours (functions) of the class
+		public function speak(){
+			echo "I am speaking!";
+		}
+
+		public function sleep(){
+			echo "I am sleeping!";
+		}
+
+		public function walk(){
+			echo "I am walking!";
+		}
+
+		public function printProperties(){
+			echo "Gender: ".$this->gender."<br>";
+			echo "Age: ".$this->age."<br>";
+			echo "Height: ".$this->height."<br>";
+			echo "Education: ".$this->education."<br>";
+			echo "Occupration: ".$this->occupation."<br>";
+		}
+
+	}
+
+	// Note: It is a bad practice to make public member variables.
+
+	$zeeshanJaved = new Person();
+	
+	$zeeshanJaved->gender = "male";
+	$zeeshanJaved->age = 24;
+	$zeeshanJaved->height = 5.7;
+	$zeeshanJaved->education = "BSCS";
+	$zeeshanJaved->occupation = "freelancer";
+
+	echo $zeeshanJaved->gender."<br>";
+	echo $zeeshanJaved->speak()."<br>";
+	echo $zeeshanJaved->printProperties();
+
+	class Student {
+		private $name;
+		private $semester;
+		private $course;
+		private $gender;
+
+		public function setName($name){
+			$this->name = $name;
+		}
+
+		public function getName(){
+			return $this->name;
+		}
+	}
+
+	$rizwanAli = new Student();
+	$rizwanAli->setName("Rizwan Ali");
+
+	echo "<br>".$rizwanAli->getName();
+
+	/*
+
+		Constructor and Destructor
+		- Both are functions
+		- Constructor fuction is called when an object is created;
+		- Desctructor function is called when an object is destroyed
+		- You can manually destroy the object using the unset function.
+		- To create a constructor we use __construct
+		- To create a destructor we use __destruct
+		- Domentation: https://www.php.net/manual/en/language.oop5.decon.php
+
+	*/
 
 ?>
