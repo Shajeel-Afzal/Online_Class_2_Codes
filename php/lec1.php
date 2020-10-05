@@ -730,7 +730,207 @@
 		- To create a constructor we use __construct
 		- To create a destructor we use __destruct
 		- Domentation: https://www.php.net/manual/en/language.oop5.decon.php
+		- Constructor is usually used to initialize the member variables. 
 
 	*/
+
+	class Food{
+		private $color;
+
+		function __construct($color){
+			echo "<br><br>Constructor is called!<br><br>";
+			$this->color = $color;
+		}
+
+		function __destruct(){
+			echo "<br><br>Destructor is called!<br><br>";
+		}
+
+		public function getColor(){
+			return $this->color;
+		}
+
+		public function setColor($color){
+			$this->color = $color;
+		}
+	}
+
+	$orange = new Food("Orange");
+	echo $orange->getColor();
+
+	unset($orange);
+
+	echo "<br><br>";
+	echo "------ Inheritance in PHP ------";
+	echo "<br><br>";
+
+	class Human {
+		private $name;
+		protected $age;
+		public $height;
+
+		public function getName(){
+			return $this->name;
+		}
+
+		public function setName($name){
+			$this->name = $name;
+		}
+
+		public function sayHi(){
+			echo "<br><br>Hi<br><br>";
+		}
+
+
+	}
+
+	class Doctor extends Human{
+		private $speciality;
+
+		public function getSpeciality(){
+			$this->speciality;
+		}
+
+		public function setSpeciality($name){
+			$this->speciality = $name;
+		}
+
+		public function showName(){
+			echo $this->name;
+		}
+
+		public function setAge($age){
+			$this->age = $age;
+		}
+
+		public function getAge(){
+			return $this->age;
+		}
+	}
+
+	$doctor = new Doctor();
+	$doctor->setName("Ahmed Ali");
+
+	echo $doctor->getName();
+	$doctor->sayHi();
+
+	/*
+
+		For member variables visibility, we can use three visibility controls:
+
+		1- public:  Makes members accessible within the class, by inheriting, and directly.
+		
+		2- private: Makes members accessible only by the class that defines them.
+
+		3- protected: Makes members accessible online within the class itself, by inheriting, and by parent class.
+
+
+	*/
+
+	$doctor->showName();
+	$doctor->setAge(30);
+	echo "<br>".$doctor->getAge();
+
+	echo "<br><br>";
+	echo "------ PHP Interfaces ------";
+	echo "<br><br>";
+
+	/*
+
+		An interface specifies a list of methods that a class must implement.
+
+		The interface itself does not contain any method implementation.
+
+		This is the important aspect of interfaces because it allows a method to be handled differently in each class that uses the interface.
+
+		The "interface" keyword is used to define an interface;
+
+		The "implements" keyword is used in a class to implement an interface.
+
+		A class can implement multiple interfaces
+
+		An interface can extend another interface!
+
+		All the methods specified in an interface require public visibility.
+
+	*/
+
+	interface HumanInterface {
+		public function eat();
+		public function sleep();
+		public function shopping();
+	}
+
+	interface developerInterface extends HumanInterface{
+		public function code();
+	}
+
+	class Male implements HumanInterface, developerInterface{
+		public function eat(){
+			echo "<br>Eating!";
+		}
+
+		public function sleep(){
+			echo "<br>Sleeping";
+		}
+
+		public function shopping(){
+			echo "<br>Shopping in 5 minutes!";
+		}
+
+		public function code(){
+			echo "<br>coding!";
+		}
+	}
+
+	class Female implements HumanInterface{
+		public function eat(){
+			echo "<br>Eating!";
+		}
+
+		public function sleep(){
+			echo "<br>Sleeping";
+		}
+
+		public function shopping(){
+			echo "<br>Shopping in 5 hours!";
+		}
+	}
+
+	echo "<br><br>";
+	echo "------ PHP Abstract Classes! ------";
+	echo "<br><br>";
+
+	/*
+
+		Abstract classes can be inherited but they cannot be instantiated. Meaning that we cannot create object of an Abstract Class!
+
+		A class inheriting from an abstract class must implement all the abstract methods.
+
+		The "abstract" keyword is used to create an abstract class or an abstract method.
+
+		Abstract functions can only appear in an abstract class!
+
+	*/
+
+	abstract class Fruit{
+		private $color;
+
+		abstract public function eat();
+
+		public function setColor($color){
+			$this->color = $color;
+		}
+	}
+
+	abstract Apple extends Fruit{
+		public function eat(){
+			echo "Eating Apple<br>";	
+		}
+	}
+
+	$apple = new Apple();
+	$apple->eat();
+
 
 ?>
