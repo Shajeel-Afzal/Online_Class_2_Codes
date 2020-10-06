@@ -923,7 +923,8 @@
 		}
 	}
 
-	abstract Apple extends Fruit{
+	class Apple extends Fruit{
+
 		public function eat(){
 			echo "Eating Apple<br>";	
 		}
@@ -931,6 +932,78 @@
 
 	$apple = new Apple();
 	$apple->eat();
+
+	echo "<br><br>";
+	echo "------ static Keyword ------";
+	echo "<br><br>";
+
+	/*
+
+		The PHP "static" keyword defines static properties and static methods.
+
+		A static property or method of a class can be accessed without creating an object of that class.
+
+		A static property or method is accessed by using the scope resolution operator (::) between the class name and the property name.
+
+		The "self" keyword is needed to access a static property from a static method in a class definition.
+
+		Objects of a class cannot access static properties in the class but they can access static methods.
+
+	*/
+
+	class MyClass {
+		static $myStaticProperty = 10;
+
+		static function printStaticPropertyValue(){
+			echo "<br>".self::$myStaticProperty."<br>";
+		}
+	}
+
+	echo MyClass::$myStaticProperty;
+	echo MyClass::printStaticPropertyValue();
+
+	echo "<br><br>";
+	echo "------ final Keyword ------";
+	echo "<br><br>";
+
+	/*
+
+		The PHP "final" keyword defines method that cannot be overridden in the child class.
+
+		Classes that are defined final cannot be inherited.
+
+	*/
+
+	class ParentClass {
+		final function myFunction(){
+			echo "<br>Parent Class<br>";
+		}
+	}
+
+	/*
+	
+		The following class will produce Fatal error: Cannot override final method ParentClass::myFunction() 
+		because myFunction is declared final in the parent class.
+
+	*/
+
+	// class ChildClass extends ParentClass{
+	// 	function myFunction(){
+	// 		echo "<br>Child Class<br>";
+	// 	}
+	// }
+
+	final class MyFinalClass {
+
+	}
+
+	/*
+		Fatal error: Class TestClass may not inherit from final class
+	*/
+
+	// class TestClass extends MyFinalClass{
+
+	// }
 
 
 ?>
